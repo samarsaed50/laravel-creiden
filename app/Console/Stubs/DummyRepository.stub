@@ -1,0 +1,23 @@
+<?php
+
+namespace models\Repositories;
+
+use models\model_name;
+use base_path\Repositories\BaseRepository;
+use models\Repositories\model_nameRepositoryInterface;
+use models\Repositories\ViewData;
+
+class model_nameRepository extends BaseRepository implements model_nameRepositoryInterface
+{
+    use ViewData;
+
+//    protected $with = [''];
+
+	public function __construct(model_name $single_lower_case)
+    {
+        $this->model = $single_lower_case;
+    }
+
+
+}
+

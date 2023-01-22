@@ -1,0 +1,37 @@
+<?php
+
+namespace controllers\Dummy;
+
+use App\Http\Controllers\Backend\CustomController;
+use models\Repositories\model_nameRepository;
+use models\Requests\Storemodel_nameRequest;
+use models\Requests\Updatemodel_nameRequest;
+
+
+class model_nameController extends CustomController
+{
+    protected $view = 'backend.plural_lower_case';
+
+    protected $route = 'admin.plural_lower_case';
+
+    protected $storeRequestFile = Storemodel_nameRequest::class;
+
+    protected $updateRequestFile = Updatemodel_nameRequest::class;
+
+    public function __construct(model_nameRepository $repository)
+    {
+        parent::__construct($repository);
+    }
+
+    public function index()
+    {
+
+        $plural_lower_case = model_name::query()->search(request()->get('search'))->latest()->paginate();
+
+        return view('backend.plural_lower_case.index', compact('plural_lower_case'));
+
+    }
+
+}
+
+

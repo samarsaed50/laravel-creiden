@@ -1,0 +1,11 @@
+<?php
+
+namespace models\Repositories;
+
+use Illuminate\Http\Request;
+ 
+interface model_nameRepositoryInterface
+{
+
+}
+
